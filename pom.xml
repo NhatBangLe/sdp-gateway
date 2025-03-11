@@ -104,6 +104,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>sdp-gateway</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

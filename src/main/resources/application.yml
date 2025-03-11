@@ -6,10 +6,11 @@ eureka:
   instance:
     instance-id: ${EK_INST_ID}
     ip-address: ${EK_INST_IPADDR}
+    non-secure-port: ${EK_HTTP_PORT:80}
     prefer-ip-address: true
 
 app:
-  product-service-id: ${PRODUCT_SERVICE_ID}
+  software-service-id: ${SOFTWARE_SERVICE_ID}
   file-service-id: ${FILE_SERVICE_ID}
   notification-service-id: ${NOTIFICATION_SERVICE_ID}
 

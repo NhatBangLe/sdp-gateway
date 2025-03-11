@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("app")
 public class AppConfigurationProperties {
 
-    private String productServiceId;
+    private String softwareServiceId;
     private String fileServiceId;
     private String notificationServiceId;
 
