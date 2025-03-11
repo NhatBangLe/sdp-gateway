@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: sdp-gateway
+
+eureka:
+  instance:
+    instance-id: ${EK_INST_ID}
+    ip-address: ${EK_INST_IPADDR}
+    prefer-ip-address: true
+
+app:
+  product-service-id: ${PRODUCT_SERVICE_ID}
+  file-service-id: ${FILE_SERVICE_ID}
+  notification-service-id: ${NOTIFICATION_SERVICE_ID}
+
+keycloak:
+  server-url: ${KC_SERVER_URL}
+  realm: ${KC_REALM}
+  client-id: ${KC_CLIENT_ID}
+  client-secret: ${KC_CLIENT_SECRET}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /docs
+    urls[0]:
+      name: Product Service
+      url: /aggregate/product/v3/api-docs
