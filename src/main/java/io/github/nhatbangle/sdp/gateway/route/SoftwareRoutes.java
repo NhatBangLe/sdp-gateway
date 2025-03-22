@@ -10,22 +10,20 @@ import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
 import static org.springframework.cloud.gateway.server.mvc.filter.FilterFunctions.setPath;
-import static org.springframework.cloud.gateway.server.mvc.filter.LoadBalancerFilterFunctions.lb;
 import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions.http;
 
 @Configuration
 @RequiredArgsConstructor
 public class SoftwareRoutes {
 
-    @Value("${app.product-service-id}")
-    private String serviceId;
+    @Value("${app.software-service-url}")
+    private String serviceUrl;
 
     @Bean
     public RouterFunction<ServerResponse> softwareServiceRouter() {
         return GatewayRouterFunctions
                 .route("software-service")
-                .filter(lb(serviceId))
-                .route(RequestPredicates.path("/api/v1/software/**"), http())
+                .route(RequestPredicates.path("/api/v1/software/**"), http(serviceUrl))
                 .build();
     }
 
@@ -33,8 +31,7 @@ public class SoftwareRoutes {
     public RouterFunction<ServerResponse> softwareServiceSwaggerRouter() {
         return GatewayRouterFunctions
                 .route("software-service-swagger")
-                .filter(lb(serviceId))
-                .route(RequestPredicates.path("/aggregate/software/v3/api-docs"), http())
+                .route(RequestPredicates.path("/aggregate/software/v3/api-docs"), http(serviceUrl))
                 .filter(setPath("/api-docs"))
                 .build();
     }

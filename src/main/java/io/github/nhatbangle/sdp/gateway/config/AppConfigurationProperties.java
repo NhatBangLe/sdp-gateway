@@ -11,8 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("app")
 public class AppConfigurationProperties {
 
-    private String softwareServiceId;
-    private String fileServiceId;
-    private String notificationServiceId;
+    private String corsOrigin = "*";
+    private String corsMethods = "*";
+    private String softwareServiceUrl;
+    private String fileServiceUrl;
+    private String notificationServiceUrl;
 
 }

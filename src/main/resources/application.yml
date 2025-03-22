@@ -2,17 +2,12 @@ spring:
   application:
     name: sdp-gateway
 
-eureka:
-  instance:
-    instance-id: ${EK_INST_ID}
-    ip-address: ${EK_INST_IPADDR}
-    non-secure-port: ${EK_HTTP_PORT:80}
-    prefer-ip-address: true
-
 app:
-  software-service-id: ${SOFTWARE_SERVICE_ID}
-  file-service-id: ${FILE_SERVICE_ID}
-  notification-service-id: ${NOTIFICATION_SERVICE_ID}
+  software-service-url: ${SOFTWARE_SERVICE_URL}
+  file-service-url: ${FILE_SERVICE_URL}
+  notification-service-url: ${NOTIFICATION_SERVICE_URL}
+  cors-origin: ${CORS_ORIGIN:*}
+  cors-methods: ${CORS_METHODS:*}
 
 keycloak:
   server-url: ${KC_SERVER_URL}

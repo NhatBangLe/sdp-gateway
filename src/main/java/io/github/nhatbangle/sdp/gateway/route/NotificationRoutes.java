@@ -10,22 +10,20 @@ import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
 import static org.springframework.cloud.gateway.server.mvc.filter.FilterFunctions.setPath;
-import static org.springframework.cloud.gateway.server.mvc.filter.LoadBalancerFilterFunctions.lb;
 import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions.http;
 
 @Configuration
 @RequiredArgsConstructor
 public class NotificationRoutes {
 
-    @Value("${app.notification-service-id}")
-    private String serviceId;
+    @Value("${app.notification-service-url}")
+    private String serviceUrl;
 
     @Bean
     public RouterFunction<ServerResponse> notificationServiceRouter() {
         return GatewayRouterFunctions
                 .route("notification-service")
-                .filter(lb(serviceId))
-                .route(RequestPredicates.path("/api/v1/notification/**"), http())
+                .route(RequestPredicates.path("/api/v1/notification/**"), http(serviceUrl))
                 .build();
     }
 
@@ -33,8 +31,7 @@ public class NotificationRoutes {
     public RouterFunction<ServerResponse> notificationServiceSwaggerRouter() {
         return GatewayRouterFunctions
                 .route("notification-service-swagger")
-                .filter(lb(serviceId))
-                .route(RequestPredicates.path("/aggregate/notification/v3/api-docs"), http())
+                .route(RequestPredicates.path("/aggregate/notification/v3/api-docs"), http(serviceUrl))
                 .filter(setPath("/api-docs"))
                 .build();
     }

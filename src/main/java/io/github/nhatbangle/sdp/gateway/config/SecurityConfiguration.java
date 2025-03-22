@@ -3,9 +3,9 @@ package io.github.nhatbangle.sdp.gateway.config;
 import lombok.RequiredArgsConstructor;
 import org.keycloak.adapters.authorization.integration.jakarta.ServletPolicyEnforcerFilter;
 import org.keycloak.representations.adapters.config.PolicyEnforcerConfig;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.util.Map;
 import java.util.stream.Stream;
 
-@AutoConfiguration
+@Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableConfigurationProperties(KeycloakConfigurationProperties.class)
@@ -27,8 +27,7 @@ public class SecurityConfiguration {
     private final String[] policyFreeResources = {
             "/docs", "/api-docs/*", "/swagger-ui/index.html",
             "/swagger-ui/*", "/aggregate/*",
-            "/v3/api-docs/*", "/swagger-resources/*",
-            "/api/v1/user/auth/*"
+            "/v3/api-docs/*", "/swagger-resources/*"
     };
 
     @Bean

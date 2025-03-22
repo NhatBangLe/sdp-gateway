@@ -10,9 +10,6 @@ services:
       KC_CLIENT_ID: client-id
       KC_CLIENT_SECRET: secret
 
-      EK_INST_ID: inst-id
-      EK_INST_IPADDR: 127.0.0.1
-      EK_HTTP_PORT: 8091
-      SOFTWARE_SERVICE_ID: software
-      FILE_SERVICE_ID: file
-      NOTIFICATION_SERVICE_ID: notification
+      SOFTWARE_SERVICE_URL: http://localhost:8081
+      FILE_SERVICE_URL: http://localhost:8082
+      NOTIFICATION_SERVICE_URL: http://localhost:8083
