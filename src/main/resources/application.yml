@@ -1,6 +1,13 @@
 spring:
   application:
     name: sdp-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
+  profiles:
+    active: dev
 
 app:
   software-service-url: ${SOFTWARE_SERVICE_URL}
