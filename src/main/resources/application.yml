@@ -21,5 +21,11 @@ springdoc:
   swagger-ui:
     path: /docs
     urls[0]:
-      name: Product Service
-      url: /aggregate/product/v3/api-docs
+      name: Software Service
+      url: /aggregate/software/v3/api-docs
+    urls[1]:
+      name: File Service
+      url: /aggregate/file/v3/api-docs
+    urls[2]:
+      name: Notification Service
+      url: /aggregate/notification/v3/api-docs
