@@ -1,0 +1,5 @@
+docker-compose.yml
+HELP.md
+.gitattributes
+.gitignore
+src/main/resources/*-dev.*

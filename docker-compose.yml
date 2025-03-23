@@ -5,6 +5,10 @@ services:
     ports:
       - "8091:8080"
     environment:
+      PROFILE_ACTIVE: prod
+#      LOG_LEVEL_ROOT: error
+#      LOG_LEVEL_WEB: error
+
       KC_SERVER_URL: localhost:8081
       KC_REALM: realm
       KC_CLIENT_ID: client-id
@@ -13,3 +17,8 @@ services:
       SOFTWARE_SERVICE_URL: http://localhost:8081
       FILE_SERVICE_URL: http://localhost:8082
       NOTIFICATION_SERVICE_URL: http://localhost:8083
+    volumes:
+      - logs:/app/logs
+volumes:
+  logs:
+    name: gateway-logs

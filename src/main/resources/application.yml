@@ -7,7 +7,7 @@ spring:
         jwt:
           issuer-uri: ${keycloak.server-url}/realms/${keycloak.realm}
   profiles:
-    active: dev
+    active: ${PROFILE_ACTIVE:dev}
 
 app:
   software-service-url: ${SOFTWARE_SERVICE_URL}
