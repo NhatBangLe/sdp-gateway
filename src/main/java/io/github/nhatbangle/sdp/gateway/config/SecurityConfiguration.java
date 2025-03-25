@@ -27,7 +27,8 @@ public class SecurityConfiguration {
     private final String[] policyFreeResources = {
             "/docs", "/api-docs/*", "/swagger-ui/index.html",
             "/swagger-ui/*", "/aggregate/*",
-            "/v3/api-docs/*", "/swagger-resources/*"
+            "/v3/api-docs/*", "/swagger-resources/*",
+            "/file/download/*"
     };
 
     @Bean
