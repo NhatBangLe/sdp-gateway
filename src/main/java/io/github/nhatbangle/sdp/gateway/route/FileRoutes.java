@@ -24,6 +24,7 @@ public class FileRoutes {
         return GatewayRouterFunctions
                 .route("file-service")
                 .route(RequestPredicates.path("/api/v1/file/**"), http(serviceUrl))
+                .route(RequestPredicates.GET("/file/download/**"), http(serviceUrl))
                 .build();
     }
 
